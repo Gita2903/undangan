@@ -118,3 +118,57 @@ html[data-bs-theme="light"] .bg-overlay-auto {
 .gif-image {
     max-height: 10rem;
 }
+/* ===== Tema Putih & Biru — Undangan Rendra & Gita ===== */
+:root {
+    --bs-primary: #2f6fd6;
+    --bs-primary-rgb: 47, 111, 214;
+    --bs-link-color: #2f6fd6;
+    --bs-link-color-rgb: 47, 111, 214;
+    --bs-link-hover-color: #1f4f9f;
+    --bs-link-hover-color-rgb: 31, 79, 159;
+}
+
+html[data-bs-theme="light"] .bg-theme-auto {
+    background-color: #eaf2fd;
+}
+
+html[data-bs-theme="dark"] .bg-theme-auto {
+    background-color: #0f2338;
+}
+
+html[data-bs-theme="light"] .btn-outline-auto {
+    --bs-btn-color: #2f6fd6;
+    --bs-btn-border-color: #2f6fd6;
+    --bs-btn-hover-color: #fff;
+    --bs-btn-hover-bg: #2f6fd6;
+    --bs-btn-hover-border-color: #2f6fd6;
+    --bs-btn-focus-shadow-rgb: 47, 111, 214;
+    --bs-btn-active-color: #fff;
+    --bs-btn-active-bg: #2f6fd6;
+    --bs-btn-active-border-color: #2f6fd6;
+    --bs-btn-disabled-color: #2f6fd6;
+    --bs-btn-disabled-border-color: #2f6fd6;
+}
+
+html[data-bs-theme="dark"] .btn-outline-auto {
+    --bs-btn-color: #7fb2ff;
+    --bs-btn-border-color: #7fb2ff;
+    --bs-btn-hover-color: #0f2338;
+    --bs-btn-hover-bg: #7fb2ff;
+    --bs-btn-hover-border-color: #7fb2ff;
+    --bs-btn-focus-shadow-rgb: 127, 178, 255;
+    --bs-btn-active-color: #0f2338;
+    --bs-btn-active-bg: #7fb2ff;
+    --bs-btn-active-border-color: #7fb2ff;
+    --bs-btn-disabled-color: #7fb2ff;
+    --bs-btn-disabled-border-color: #7fb2ff;
+}
+
+.navbar .nav-link.active,
+.navbar .nav-link:hover {
+    color: #2f6fd6 !important;
+}
+
+.progress-bar {
+    background-color: #2f6fd6 !important;
+}
