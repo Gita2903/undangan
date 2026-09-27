@@ -61,11 +61,23 @@ export const cache = (cacheName) => {
         }
 
         /**
+         * Cegah macet kalau Cache Storage API lambat/gagal inisialisasi
+         * (sering terjadi di device/browser baru pertama kali buka).
+         * @param {Promise<any>} p
+         * @param {number} ms
+         * @returns {Promise<any>}
+         */
+        const withTimeout = (p, ms = 8000) => Promise.race([
+            p,
+            new Promise((_, rej) => window.setTimeout(() => rej(new Error(`cache timeout: ${input}`)), ms)),
+        ]);
+
+        /**
          * @returns {Promise<Response>}
          */
         const fetchPut = () => request(HTTP_GET, input).withCancel(cancel).withRetry().default();
 
-        const inflightPromise = has(input)
+        const inflightPromise = withTimeout(has(input))
             .then((res) => res ? Promise.resolve(res) : del(input).then(fetchPut).then((r) => set(input, r)))
             .then((r) => r.blob())
             .then((b) => objectUrls.set(input, URL.createObjectURL(b)))

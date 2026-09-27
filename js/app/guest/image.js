@@ -49,12 +49,15 @@ export const image = (() => {
      * @returns {void}
      */
     const getByFetch = (el) => {
+        const src = el.getAttribute('data-src');
+
         urlCache.push({
-            url: el.getAttribute('data-src'),
+            url: src,
             res: (url) => appendImage(el, url),
             rej: (err) => {
                 console.error(err);
-                progress.invalid('image');
+                // Cache API gagal/timeout (device baru, storage belum siap, dll) -> fallback load native.
+                appendImage(el, src).catch(() => progress.invalid('image'));
             },
         });
     };
